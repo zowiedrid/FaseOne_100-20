@@ -22,65 +22,101 @@ class DataForm extends StatefulWidget {
 class _DataFormState extends State<DataForm> {
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: widget.dataFormKey,
-      child: Column(
-        children: [
-          TextFormField(
-            controller: widget.etNama,
-            decoration: const InputDecoration(labelText: "Nama"),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Nama tidak boleh kosong";
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            controller: widget.etAlamat,
-            decoration: const InputDecoration(labelText: "Alamat"),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Alamat tidak boleh kosong";
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            controller: widget.etNoHp,
-            decoration: const InputDecoration(labelText: "No HP"),
-            keyboardType: TextInputType.number,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "No HP tidak boleh kosong";
-              }
-              return null;
-            },
-          ),
-          Row(
-            children: [
-              Text("Jenis Kelamin"),
-              Radio(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Form(
+        key: widget.dataFormKey,
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: TextFormField(
+                controller: widget.etNama,
+                decoration: const InputDecoration(
+                  labelText: "Nama",
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.all(10.0),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Nama tidak boleh kosong";
+                  }
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: TextFormField(
+                controller: widget.etAlamat,
+                decoration: const InputDecoration(
+                  labelText: "Alamat",
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.all(10.0),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Alamat tidak boleh kosong";
+                  }
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: TextFormField(
+                controller: widget.etNoHp,
+                decoration: const InputDecoration(
+                  labelText: "No HP",
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.all(10.0),
+                ),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "No HP tidak boleh kosong";
+                  }
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Row(
+              children: [
+                Text("Jenis Kelamin"),
+                Radio(
                   value: "Laki-laki",
-                  groupValue: widget.jenisKelamin,
-                  onChanged: (value) {
-                    setState(() {
-                      widget.jenisKelamin = value as String?;
-                    });
-                  }),
-              const Text("Laki-laki"),
-              Radio(
-                  value: "Perempuan",
-                  groupValue: widget.jenisKelamin,
-                  onChanged: (value) {
-                    setState(() {
-                      widget.jenisKelamin = value as String?;
-                    });
-                  }),
-              const Text("Perempuan"),
-            ],
-          ),
-        ],
+                    groupValue: widget.jenisKelamin,
+                    onChanged: (value) {
+                      setState(() {
+                        widget.jenisKelamin = value as String?;
+                      });
+                    }),
+                const Text("Laki-laki"),
+                Radio(
+                    value: "Perempuan",
+                    groupValue: widget.jenisKelamin,
+                    onChanged: (value) {
+                      setState(() {
+                        widget.jenisKelamin = value as String?;
+                      });
+                    }),
+                const Text("Perempuan"),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

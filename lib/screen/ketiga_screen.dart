@@ -107,7 +107,6 @@ class KetigaScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => PertamaScreen()),
                 (route) => false);
-
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Mulai Lagi')));
           }, onPressedSelesai: () {

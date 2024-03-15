@@ -8,7 +8,8 @@ class Footer2Widget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly, // evenly space the buttons
       children: [
         ElevatedButton(
           onPressed: onPressedSimpan as void Function()?,

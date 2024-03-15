@@ -4,6 +4,8 @@ import 'package:ucp1_pam/widget/kedua/footer2_widget.dart';
 import 'package:ucp1_pam/widget/kedua/header2_widget.dart';
 import 'package:ucp1_pam/widget/kedua/makanan_form.dart';
 
+import 'pertama_screen.dart';
+
 class KeduaScreen extends StatelessWidget {
   const KeduaScreen({super.key, required this.nama, required this.noHp});
   final String nama;
@@ -29,21 +31,26 @@ class KeduaScreen extends StatelessWidget {
                   etNamaMakanan: makananController,
                   etNamaMinuman: minumanController,
                   etDessert: dessertController),
-              Footer2Widget(onPressedSimpan: () { 
+              Footer2Widget(onPressedSimpan: () {
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
                         builder: (context) => KetigaScreen(
                             nama: nama,
                             noHp: noHp,
-                            makanan: makananController.text, 
+                            makanan: makananController.text,
                             minuman: minumanController.text,
                             dessert: dessertController.text)),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Processing Data')));
               }, onPressedBatal: () {
-                Navigator.pop(context);
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => PertamaScreen()),
+                    (route) => false);
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(const SnackBar(content: Text('Mulai Lagi')));
               }),
             ],
           ),

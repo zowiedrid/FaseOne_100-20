@@ -27,7 +27,6 @@ class PertamaScreen extends StatelessWidget {
                 etNoHp: noHpController,
               ),
               Footer1Widget(onPressedSimpan: () {
-                //jadikan onPressedSimpan sebagai penyimpan data dan beralih ke halaman KeduaScreen()
                 if (dataFormKey.currentState!.validate()) {
                   Navigator.pushAndRemoveUntil(
                       context,
@@ -38,7 +37,7 @@ class PertamaScreen extends StatelessWidget {
                       (route) => false);
 
                   ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')));
+                      const SnackBar(content: Text('Data Tersimpan')));
                 }
               }, onPressedKeluar: () {
                 Navigator.pop(context);

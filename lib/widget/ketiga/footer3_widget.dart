@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Footer3Widget extends StatelessWidget {
-  const Footer3Widget({super.key, required this.onPressedMulaiLagi, required this.onPressedSelesai});
+  const Footer3Widget(
+      {super.key,
+      required this.onPressedMulaiLagi,
+      required this.onPressedSelesai});
 
   final Function onPressedMulaiLagi;
   final Function onPressedSelesai;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisAlignment:
+          MainAxisAlignment.spaceEvenly, // evenly space the buttons
       children: [
         ElevatedButton(
           onPressed: onPressedMulaiLagi as void Function()?,
