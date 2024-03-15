@@ -21,6 +21,7 @@ class KetigaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
+            child: Center(
       child: Column(
         children: [
           Header3Widget(),
@@ -38,6 +39,6 @@ class KetigaScreen extends StatelessWidget {
           })
         ],
       ),
-    ));
+    )));
   }
 }

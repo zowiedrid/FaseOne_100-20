@@ -34,7 +34,7 @@ class KeduaScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => KetigaScreen(
-                            nama: nama, //
+                            nama: nama,
                             noHp: noHp,
                             makanan: makananController.text, 
                             minuman: minumanController.text,
