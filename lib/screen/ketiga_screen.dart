@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_pam/screen/pertama_screen.dart';
 import 'package:ucp1_pam/widget/ketiga/footer3_widget.dart';
 import 'package:ucp1_pam/widget/ketiga/header3_widget.dart';
 
@@ -31,6 +32,12 @@ class KetigaScreen extends StatelessWidget {
           Text("Minuman: $minuman"),
           Text("Dessert: $dessert"),
           Footer3Widget(onPressedMulaiLagi: () {
+            //mengulang ke halaman PertamaScreen
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => PertamaScreen()),
+                (route) => false);
+
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Mulai Lagi')));
           }, onPressedSelesai: () {
