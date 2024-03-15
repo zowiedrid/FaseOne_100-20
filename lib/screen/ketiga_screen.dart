@@ -26,13 +26,83 @@ class KetigaScreen extends StatelessWidget {
       child: Column(
         children: [
           Header3Widget(),
-          Text("Halo Kak, $nama"),
-          Text("Nomor HP: $noHp"),
-          Text("Makanan: $makanan"),
-          Text("Minuman: $minuman"),
-          Text("Dessert: $dessert"),
+          Form(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10), // Add some padding
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black), // Add border
+                      ),
+                      child: Text("Nama: $nama",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10), // Add some padding
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black), // Add border
+                      ),
+                      child: Text("Nomor HP: $noHp",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10), // Add some padding
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black), // Add border
+                      ),
+                      child: Text("Makanan: $makanan",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10), // Add some padding
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black), // Add border
+                      ),
+                      child: Text("Minuman: $minuman",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10), // Add some padding
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black), // Add border
+                      ),
+                      child: Text("Dessert: $dessert",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Footer3Widget(onPressedMulaiLagi: () {
-            //mengulang ke halaman PertamaScreen
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => PertamaScreen()),
@@ -41,8 +111,7 @@ class KetigaScreen extends StatelessWidget {
             ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Mulai Lagi')));
           }, onPressedSelesai: () {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(const SnackBar(content: Text('Selesai')));
+            Navigator.pop(context);
           })
         ],
       ),
