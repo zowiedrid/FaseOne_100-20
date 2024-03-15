@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // ignore: must_be_immutable
 class DataForm extends StatefulWidget {
@@ -83,9 +84,14 @@ class _DataFormState extends State<DataForm> {
                   contentPadding: EdgeInsets.all(10.0),
                 ),
                 keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ], // Only numbers can be entered
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "No HP tidak boleh kosong";
+                  } else if (value.length < 10 || value.length > 14) {
+                    return "No HP harus antara 10 dan 14 angka";
                   }
                   return null;
                 },
@@ -96,7 +102,7 @@ class _DataFormState extends State<DataForm> {
               children: [
                 Text("Jenis Kelamin"),
                 Radio(
-                  value: "Laki-laki",
+                    value: "Laki-laki",
                     groupValue: widget.jenisKelamin,
                     onChanged: (value) {
                       setState(() {
